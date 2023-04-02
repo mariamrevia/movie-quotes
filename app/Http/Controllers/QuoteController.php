@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Quote;
 
 class QuoteController extends Controller
 {
-    //
+	public function index()
+	{
+		$randomQuote = Quote::inRandomOrder()->first();
+		return view('landingpage', [
+			'quote' => $randomQuote,
+		]);
+	}
 }
