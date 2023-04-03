@@ -6,7 +6,7 @@ use App\Models\Quote;
 
 class QuoteController extends Controller
 {
-	public function index()
+	public function get()
 	{
 		$randomQuote = Quote::inRandomOrder()->first();
 		return view('landingpage', [
