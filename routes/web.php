@@ -15,3 +15,4 @@ use App\Http\Controllers\QuoteController;
 */
 
 Route::get('/', [QuoteController::class, 'randomQoute'])->name('home');
+Route::get('movie/{movie}', [MovieController::class, 'showMovie'])->name('show.movie');
