@@ -19,7 +19,7 @@ class QuoteFactory extends Factory
 	{
 		return [
 			'movie_id' => Movie::factory(),
-			'body'     => $this->faker->paragraph(),
+			'body'     => $this->faker->sentence(),
 			'image'    => $this->faker->sentence(),
 		];
 	}
