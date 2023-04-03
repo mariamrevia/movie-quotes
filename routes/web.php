@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuoteController;
+use App\Http\Controllers\MovieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,4 +15,5 @@ use App\Http\Controllers\QuoteController;
 |
 */
 
-Route::get('/', [QuoteController::class, 'get'])->name('home');
+Route::get('/', [QuoteController::class, 'randomQoute'])->name('home');
+Route::get('movies/{movie}', [MovieController::class, 'showMovie'])->name('movie.show');

@@ -15,10 +15,10 @@
 </head>
 
 <body>
-    <div class="flex justify-center h-screen w-screen bg-gradient">
-        <div class="absolute top-546 left-54 gap-11 flex flex-col">
-            <button class="h-58 w-58 border border-white rounded-full"></button>
-            <button class="h-58 w-58 border border-white rounded-full"></button>
+    <div class="flex justify-center h-screen w-screen bg-gradient ">
+        <div class="absolute top-[34rem] left-[3rem] gap-11 flex flex-col">
+            <button class="h-[4rem] w-[4rem] border border-white rounded-full"></button>
+            <button class="h-[4rem] w-[4rem] border border-white rounded-full"></button>
         </div>
 
         {{ $slot }}
