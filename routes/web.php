@@ -16,4 +16,4 @@ use App\Http\Controllers\MovieController;
 */
 
 Route::get('/', [QuoteController::class, 'randomQoute'])->name('home');
-Route::get('movie/{movie}', [MovieController::class, 'showMovie'])->name('movie.show');
+Route::get('movies/{movie}', [MovieController::class, 'showMovie'])->name('movie.show');
