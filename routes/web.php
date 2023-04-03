@@ -14,4 +14,4 @@ use App\Http\Controllers\QuoteController;
 |
 */
 
-Route::get('/', [QuoteController::class, 'get'])->name('home');
+Route::get('/', [QuoteController::class, 'randomQoute'])->name('home');
