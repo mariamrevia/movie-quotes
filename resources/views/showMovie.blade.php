@@ -5,12 +5,12 @@
     
     
     <div>
-        <h1 class="font-sans text-white text-48 mt-79 h-58">{{ $movie->title }}</h1>
+        <h1 class="font-sans text-white text-[3rem] mt-[5rem] h-[3rem]">{{ $movie->title }}</h1>
         @foreach ($movie->quotes as $quote)
             <div class=" mt-82">
-                <div class="h-414 w-748  border border-white bg-slate-300 rounded"></div>
-                <div class="h-119 w-748 bg-white text-black flex items-center border rounded">
-                    <p class="ml-18 text-36">"{{ $quote->body }}"</p>
+                <div class="h-[26rem] w-[47rem]  border border-white bg-slate-300 rounded-t"></div>
+                <div class="h-[7.5rem] w-[47rem] bg-white text-black flex items-center border rounded-b">
+                    <p class="ml-[1rem] text-[2rem]">"{{ $quote->body }}"</p>
                 </div>
             </div>
         @endforeach

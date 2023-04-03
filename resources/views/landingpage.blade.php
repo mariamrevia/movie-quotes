@@ -3,15 +3,15 @@
    
 
      
-       <div class=" mt-228 flex  flex-col  items-center">
+       <div class=" mt-[14rem] flex  flex-col  items-center">
 
-        <div class="h-386 w-700  border border-white">
+        <div class="h-[16rem] w-[43rem]  border border-white">
             <p></p>
         </div>
-           <h2 class="mt-65 text-white text-48">{{$quote->body}}</h2>
+           <h2 class="mt-[4rem] text-white text-48">{{$quote->body}}</h2>
            <a href="{{route('movie.show',['movie' => $quote->movie->id]) }}">
 
-               <p class="mt-114 text-white text-48 underline">{{$quote->movie->title}}</p>
+               <p class="mt-[7rem] text-white text-[3rem] underline">{{$quote->movie->title}}</p>
 
            </a>
 
