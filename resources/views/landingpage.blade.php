@@ -1,17 +1,19 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-       
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Laravel</title>
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        @vite('resources/css/app.css')
-        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-      
-    </head>
-    <body class="antialiased">
+<x-layout>
+   
+
      
-    </body>
-</html>
+       <div class=" mt-228 flex  flex-col  items-center">
+
+        <div class="h-386 w-700  border border-white">
+            <p></p>
+        </div>
+           <h2 class="mt-65">{{$quote->body}}</h2>
+           <p class="mt-114">{{$quote->movie->title}}</p>
+
+       </div>
+   
+
+
+   
+</x-layout>
