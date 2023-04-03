@@ -12,10 +12,10 @@ return new class extends Migration {
 	{
 		Schema::create('quotes', function (Blueprint $table) {
 			$table->id();
+			$table->foreignId('movie_id')->constrained()->cascadeOnDelete();
 			$table->timestamps();
 			$table->text('body');
 			$table->string('image');
-			$table->foreignId('movie_id')->constrained()->cascadeOnDelete();
 		});
 	}
 
