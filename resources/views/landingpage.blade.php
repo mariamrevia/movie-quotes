@@ -9,7 +9,11 @@
             <p></p>
         </div>
            <h2 class="mt-65 text-white text-48">{{$quote->body}}</h2>
-           <p class="mt-114 text-white text-48 underline">{{$quote->movie->title}}</p>
+           <a href="{{route('movie.show',['movie' => $quote->movie->id]) }}">
+
+               <p class="mt-114 text-white text-48 underline">{{$quote->movie->title}}</p>
+
+           </a>
 
        </div>
    
