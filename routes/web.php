@@ -19,5 +19,5 @@ use App\Http\Controllers\sessions\AuthController;
 Route::get('/', [QuoteController::class, 'randomQoute'])->name('home');
 Route::get('movies/{movie}', [MovieController::class, 'showMovie'])->name('movie.show');
 
-Route::get('login', [AuthController::class, 'create']);
-Route::post('login', [AuthController::class, 'store']);
+Route::view('login', 'sessions.login')->name('login.view');
+Route::post('login', [AuthController::class, 'store'])->name('login.store');
