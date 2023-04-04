@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\loginRequest;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
@@ -21,7 +21,9 @@ class AuthController extends Controller
 
 		if (!auth()->attempt($attributes))
 		{
-			abort(Response::HTTP_FORBIDDEN);
+			throw ValidationException::withMessages([
+				'email'=> 'your provieded credentials could not be verified',
+			]);
 		}
 
 		session()->regenerate();
