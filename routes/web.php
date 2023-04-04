@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\sessions\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,6 @@ use App\Http\Controllers\MovieController;
 
 Route::get('/', [QuoteController::class, 'randomQoute'])->name('home');
 Route::get('movies/{movie}', [MovieController::class, 'showMovie'])->name('movie.show');
+
+Route::view('login', 'sessions.login')->name('login.view');
+Route::post('login', [AuthController::class, 'store'])->name('login.store');

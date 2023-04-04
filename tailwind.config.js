@@ -11,9 +11,10 @@ module.exports = {
     },
     extend: {
       height: {
-      
+        '35':'35rem'
       },
       width: {
+        
   
       },
       margin: {
@@ -24,6 +25,7 @@ module.exports = {
         
       },
       fontSize:{
+        '2':'2rem'
       
       },
 
