@@ -12,26 +12,29 @@ class CreateAdmin extends Command
 	 *
 	 * @var string
 	 */
-	protected $signature = 'create:admin {email} {password}';
+	protected $name = 'create:admin';
 
 	/**
 	 * The console command description.
 	 *
 	 * @var string
 	 */
-	protected $description = 'Command description';
+	protected $description = 'Create an admin user';
 
 	/**
 	 * Execute the console command.
 	 */
 	public function handle(): void
 	{
-		$email = $this->argument('email');
-		$password = $this->argument('password');
+		$email = $this->ask('What is your email?');
+		$password = $this->secret('What is the password?');
+
 		$admin = new User();
 		$admin->name = 'Admin';
 		$admin->email = $email;
 		$admin->password = bcrypt($password);
 		$admin->save();
+
+		$this->info('Admin user created successfully.');
 	}
 }
