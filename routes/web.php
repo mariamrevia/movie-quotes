@@ -25,6 +25,8 @@ Route::middleware('admin')->group(function () {
 	Route::view('admin/movies/create', 'admin.movie.createmovie')->name('movies.create');
 	Route::post('admin/movies', [AdminMovieController::class, 'store'])->name('movies.store');
 
+	Route::view('admin/dashboard', 'admin.dashboard')->name('dashboard.show');
+
 	Route::get('admin/quotes/create', [AdminQuoteController::class, 'create'])->name('quotes.create');
 	Route::post('admin/quotes', [AdminQuoteController::class, 'store'])->name('quotes.store');
 });

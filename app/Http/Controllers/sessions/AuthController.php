@@ -21,6 +21,6 @@ class AuthController extends Controller
 		}
 
 		session()->regenerate();
-		return redirect('/');
+		return redirect()->route('dashboard.show');
 	}
 }
