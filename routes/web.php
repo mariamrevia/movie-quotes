@@ -21,7 +21,7 @@ use App\Http\Controllers\Admin\QuoteController as AdminQuoteController;
 Route::get('/', [QuoteController::class, 'randomQoute'])->name('home');
 Route::get('movies/{movie}', [MovieController::class, 'showMovie'])->name('movie.show');
 
-Route::middleware('can::admin')->group(function () {
+Route::middleware('admin')->group(function () {
 	Route::view('admin/movies/create', 'admin.movie.createmovie')->name('movies.create');
 	Route::post('admin/movies', [AdminMovieController::class, 'store'])->name('movies.store');
 
