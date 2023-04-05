@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AdminMovieRequest extends FormRequest
+class MovieRequest extends FormRequest
 {
 	public function rules(): array
 	{

@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\sessions\AuthController;
-use App\Http\Controllers\AdminMovieController;
-use App\Http\Controllers\AdminQuoteController;
+use App\Http\Controllers\Admin\MovieController as AdminMovieController;
+use App\Http\Controllers\Admin\QuoteController as AdminQuoteController;
 
 /*
 |--------------------------------------------------------------------------

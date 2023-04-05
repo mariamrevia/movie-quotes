@@ -1,21 +1,24 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\AdminQuoteRequest;
+use App\Http\Requests\Admin\QuoteRequest;
 use App\Models\Movie;
 use App\Models\Quote;
+use App\Http\Controllers\Controller;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 
-class AdminQuoteController extends Controller
+class QuoteController extends Controller
 {
-	public function create()
+	public function create(): View
 	{
 		return view('admin.quote.createquote', [
 			'movies' => Movie::all(),
 		]);
 	}
 
-	public function store(AdminQuoteRequest $request)
+	public function store(QuoteRequest $request): RedirectResponse
 	{
 		$quoteAttributes = $request->validated() +
 		[

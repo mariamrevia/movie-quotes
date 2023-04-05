@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class AdminQuoteRequest extends FormRequest
+class QuoteRequest extends FormRequest
 {
 	public function rules(): array
 	{
