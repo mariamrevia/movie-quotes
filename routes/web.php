@@ -24,7 +24,7 @@ Route::get('movies/{movie}', [MovieController::class, 'showMovie'])->name('movie
 Route::view('admin/movies/create', 'admin.movie.createmovie')->name('movies.create');
 Route::post('admin/movies', [AdminMovieController::class, 'store'])->name('movies.store');
 
-Route::view('admin/quotes/create', 'admin.quote.createquote')->name('quotes.create');
+Route::get('admin/quotes/create', [AdminQuoteController::class, 'create'])->name('quotes.create');
 Route::post('admin/quotes', [AdminQuoteController::class, 'store'])->name('quotes.store');
 
 Route::view('login', 'sessions.login')->name('login.view');
