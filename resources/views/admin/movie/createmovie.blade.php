@@ -14,7 +14,11 @@
 
         <div class="mt-6">
             <label class="block mb-2 uppercase font-bold text-xl text-white-700">Movie in English</label>
-            <input name="title" id="title" class="border border-gray-200 p-2 w-full rounded" />
+            <input 
+            name="title" 
+            id="title" 
+            class="border border-gray-200 p-2 w-full rounded" 
+            />
 
 
         </div>

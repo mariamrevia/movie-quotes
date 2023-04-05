@@ -10,6 +10,8 @@ class Movie extends Model
 {
 	use HasFactory;
 
+	protected $guarded = [];
+
 	public function quotes(): HasMany
 	{
 		return $this->hasMany(Quote::class);
