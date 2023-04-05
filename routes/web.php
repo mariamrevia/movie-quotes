@@ -21,11 +21,13 @@ use App\Http\Controllers\Admin\QuoteController as AdminQuoteController;
 Route::get('/', [QuoteController::class, 'randomQoute'])->name('home');
 Route::get('movies/{movie}', [MovieController::class, 'showMovie'])->name('movie.show');
 
-Route::view('admin/movies/create', 'admin.movie.createmovie')->name('movies.create');
-Route::post('admin/movies', [AdminMovieController::class, 'store'])->name('movies.store');
+Route::middleware('can::admin')->group(function () {
+	Route::view('admin/movies/create', 'admin.movie.createmovie')->name('movies.create');
+	Route::post('admin/movies', [AdminMovieController::class, 'store'])->name('movies.store');
 
-Route::get('admin/quotes/create', [AdminQuoteController::class, 'create'])->name('quotes.create');
-Route::post('admin/quotes', [AdminQuoteController::class, 'store'])->name('quotes.store');
+	Route::get('admin/quotes/create', [AdminQuoteController::class, 'create'])->name('quotes.create');
+	Route::post('admin/quotes', [AdminQuoteController::class, 'store'])->name('quotes.store');
+});
 
 Route::view('login', 'sessions.login')->name('login.view');
 Route::post('login', [AuthController::class, 'store'])->name('login.store');

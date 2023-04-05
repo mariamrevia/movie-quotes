@@ -10,7 +10,7 @@ class Quote extends Model
 {
 	use HasFactory;
 
-	protected $guarded = [];
+	protected $guarded = ['id'];
 
 	public function movie(): BelongsTo
 	{

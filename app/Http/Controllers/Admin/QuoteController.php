@@ -22,7 +22,7 @@ class QuoteController extends Controller
 	{
 		$quoteAttributes = $request->validated() +
 		[
-			'image' => request()->file('image')->store('images'),
+			'image' => $request->file('image')->store('images'),
 		];
 
 		Quote::create($quoteAttributes);

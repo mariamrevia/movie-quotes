@@ -3,7 +3,6 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
 class QuoteRequest extends FormRequest
 {
@@ -12,7 +11,7 @@ class QuoteRequest extends FormRequest
 		return [
 			'body'    => 'required',
 			'image'   => 'required|image',
-			'movie_id'=> ['required', Rule::exists('movies', 'id')],
+			'movie_id'=> 'required|exists:movies,id',
 		];
 	}
 }
