@@ -3,7 +3,7 @@
     <div class="bg-slate-300 w-50 h-35 mt-[17rem] border rounded flex flex-col justify-center">
 
         <h2 class="text-center font-bold text-2">Create Movie</h2>
-        <form class="pr-10 pl-10" method="POST" action="/admin/movies" enctype="multipart/form-data">
+        <form class="pr-10 pl-10" method="POST" action="{{route('movies.store')}}" enctype="multipart/form-data">
 
             @csrf
 

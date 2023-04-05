@@ -1,7 +1,7 @@
 <x-layout>
 
     <div class="bg-slate-300 w-50 h-35 mt-[17rem] border rounded flex flex-col justify-center">
-        <form method="POST" action="/admin/quotes" enctype="multipart/form-data" class="pr-10 pl-10">
+        <form method="POST" action="{{route('quotes.store')}}" enctype="multipart/form-data" class="pr-10 pl-10">
 
             @csrf
 
