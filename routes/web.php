@@ -24,6 +24,8 @@ Route::get('movies/{movie}', [MovieController::class, 'showMovie'])->name('movie
 Route::middleware('admin')->group(function () {
 	Route::view('admin/movies/create', 'admin.movie.createmovie')->name('movies.create');
 	Route::post('admin/movies', [AdminMovieController::class, 'store'])->name('movies.store');
+	Route::get('admin/movies', [AdminMovieController::class, 'index'])->name('movies.show_all');
+	Route::get('admin/movies/{movie}/edit', [AdminMovieController::class, 'edit'])->name('movie.edit');
 
 	Route::view('admin/dashboard', 'admin.dashboard')->name('dashboard.show');
 

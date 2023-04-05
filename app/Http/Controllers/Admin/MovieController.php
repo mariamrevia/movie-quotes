@@ -9,6 +9,20 @@ use App\Http\Controllers\Controller;
 
 class MovieController extends Controller
 {
+	public function index()
+	{
+		return view('admin.allmovies', [
+			'movies' => Movie::all(),
+		]);
+	}
+
+	public function edit(Movie $movie)
+	{
+		return view('admin.movie.edit', [
+			'movie' => $movie,
+		]);
+	}
+
 	public function store(MovieRequest $request): RedirectResponse
 	{
 		$movieAttributes = $request->validated();
