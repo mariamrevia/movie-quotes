@@ -18,16 +18,21 @@
             name="title" 
             id="title" 
             class="border border-gray-200 p-2 w-full rounded" 
+
             />
 
 
         </div>
-        <div class="mt-6">
-            <label class="block mb-2 uppercase font-bold text-xl text-gray-700">Movie in Goergian</label>
-            <input name="title" id="title" class="border border-gray-200 p-2 w-full rounded" />
+        {{-- <div class="mt-6">
+            <label 
+            class="block mb-2 uppercase font-bold text-xl text-gray-700">Movie in Goergian</label>
+            <input 
+            name="title" 
+            id="title"
+            class="border border-gray-200 p-2 w-full rounded" />
 
 
-        </div>
+        </div> --}}
 
 
         @error('title')
