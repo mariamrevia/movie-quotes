@@ -6,7 +6,7 @@
          mb-[3rem] text-[2rem]">All Movies</h2>
         <div class="flex flex-col">
                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                        <div class="bg-red-200 py-5 rounded  align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                        <div class="bg-slate-300 py-5 rounded  align-middle inline-block min-w-full sm:px-6 lg:px-8">
                             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                                 <table class="min-w-dull divide-y divide-gray-200">
                                     <tbody class="bg-white divide-y divide-gray-200">

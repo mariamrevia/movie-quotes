@@ -1,68 +1,27 @@
 <x-layout>
-    <div class="flex flex-col border-2 border-red-400 w-35 h-35 mt-[18rem] items-center justify-center rounded">
-       
-        <div class="flex flex-col">
-            <h2 class=" text-white uppercase font-semibold 
-        text-xm">Manage Movies</h2>
-            <a href="{{ route('movies.create') }}">
+    <div class="flex flex-col border-2 border-red-400 w-35 h-35 mt-[18rem] items-center justify-center rounded bg-slate-300 ">
 
-                <button
-                    class="bg-red-300
-                w-[13rem] h-[3rem]
-                 text-white uppercase font-semibold 
-                 text-xm py-2 px-10 rounded-2xl 
-                 hover:big-blue-600 mt-5 mb-5 ml-3">
-                    create movie</button>
-            </a>
+        <x-admin.field>
+            <x-admin.heading name="Manage Movies" />
+            <x-admin.link :route="route('movies.create')">
+                <x-admin.button name="Add a new Movie"/>
+            </x-admin.link>
 
-            <a href="{{ route('movies.show_all') }}">
+            <x-admin.link :route="route('movies.show_all')">
+                <x-admin.button name="See all Movies" />
+            </x-admin.link>
 
-                <button
-                    class="bg-red-300
-                
-                w-[13rem] h-[3rem]
-                 text-white uppercase font-semibold 
-                 text-xm py-2 px-10 rounded-2xl 
-                 hover:big-blue-600 mt-5 mb-5 ml-3">
+        </x-admin.field>
 
 
-                    All Movies</button>
-            </a>
-        </div>
+        <x-admin.field>
+            <x-admin.heading name="Manage Quotes" />
+            <x-admin.link :route="route('quotes.create')">
 
-        <div class="flex flex-col mt-[2rem]">
-
-            <h2 class=" text-white uppercase font-semibold 
-        text-xm">Manage Quotes</h2>
-
-            <a href="{{ route('quotes.create') }}">
-
-                <button
-                    class="bg-red-300
-                    
-                    w-[13rem] h-[3rem]
-                    
-                     text-white uppercase font-semibold 
-                     text-xm py-2 px-10 rounded-2xl 
-                     hover:big-blue-600 mt-5 mb-5 ml-3">
-
-
-                    Create Quote</button>
-            </a>
-            <a href="{{ route('quotes.create') }}">
-
-                <button
-                    class="bg-red-300
-                    
-                    w-[13rem] h-[3rem]
-                     text-white uppercase font-semibold 
-                     text-xm py-2 px-10 rounded-2xl 
-                     hover:big-blue-600 mt-5 mb-5 ml-3">
-
-
-                    All Quotes</button>
-            </a>
-        </div>
+                <x-admin.button name="Add a new Quote" />
+            </x-admin.link>
+                <x-admin.button name="See all Quotes" /> 
+        </x-admin.field>
 
 
     </div>
