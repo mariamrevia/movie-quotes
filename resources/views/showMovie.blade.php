@@ -9,7 +9,7 @@
         @foreach ($movie->quotes as $quote)
             <div class=" mt-[5rem]">
                 <div class="h-[26rem] w-[47rem]  border border-white bg-slate-300 rounded-t">
-                    <img src="/storage/{{$quote->image}}"/>
+                    <img src="/storage/{{$quote->image}}" class="h-[26rem] w-[47rem]"/>
                 </div>
                 <div class="h-[7.5rem] w-[47rem] bg-white text-black flex items-center border rounded-b">
                     <p class="ml-[1rem] text-[2rem]">"{{ $quote->body }}"</p>

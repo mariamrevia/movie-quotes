@@ -1,4 +1,6 @@
 <x-layout>
+
+    @if($movies->count())
     <div class="flex flex-col mt-[11rem] ">
         <h2 class=" text-white uppercase font-semibold 
          mb-[3rem] text-[2rem]">All Movies</h2>
@@ -45,10 +47,16 @@
             </div>
         </div>
 
+        <div class="mt-[1rem] ml-[2rem]">
 
+            {{$movies->links()}}
+        </div>
 
     </div>
 
+    @else 
+    <p class="text-center">No movies yet. please check back later</p>
+    @endif
 
 
 
