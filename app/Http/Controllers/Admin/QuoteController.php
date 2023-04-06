@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\Admin\QuoteRequest;
+use App\Http\Requests\Admin\UpDateQuoteRequest;
 use App\Models\Movie;
 use App\Models\Quote;
 use App\Http\Controllers\Controller;
@@ -21,8 +22,16 @@ class QuoteController extends Controller
 	public function edit(Quote $quote): View
 	{
 		return view('admin.quote.edit', [
-			'quote'=> $quote,
+			'quote' => $quote,
+			'movies'=> Movie::all(),
 		]);
+	}
+
+	public function update(UpDateQuoteRequest $request, Quote $quote)
+	{
+		$quoteAttributes = $request->validated();
+		$quote->update($quoteAttributes);
+		return redirect()->route('quotes.show_all');
 	}
 
 	public function create(): View

@@ -35,6 +35,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
 
 	Route::get('quotes', [AdminQuoteController::class, 'showQuotes'])->name('quotes.show_all');
 	Route::get('quotes/{quote}/edit', [AdminQuoteController::class, 'edit'])->name('quote.edit');
+	Route::patch('quotes/{quote}', [AdminQuoteController::class, 'update'])->name('quote.update');
 });
 
 Route::view('login', 'sessions.login')->name('login.view');

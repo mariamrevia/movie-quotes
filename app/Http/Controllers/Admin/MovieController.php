@@ -24,6 +24,8 @@ class MovieController extends Controller
 		]);
 	}
 
+
+	
 	public function update(MovieRequest $request, Movie $movie): RedirectResponse
 	{
 		$movieAttributes = $request->validated();
