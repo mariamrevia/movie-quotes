@@ -6,24 +6,25 @@ use App\Http\Requests\Admin\MovieRequest;
 use App\Models\Movie;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Controllers\Controller;
+use Illuminate\Contracts\View\View;
 
 class MovieController extends Controller
 {
-	public function showMovies()
+	public function showMovies(): View
 	{
 		return view('admin.allmovies', [
 			'movies' => Movie::all(),
 		]);
 	}
 
-	public function edit(Movie $movie)
+	public function edit(Movie $movie): View
 	{
 		return view('admin.movie.edit', [
 			'movie' => $movie,
 		]);
 	}
 
-	public function update(MovieRequest $request, Movie $movie)
+	public function update(MovieRequest $request, Movie $movie): RedirectResponse
 	{
 		$movieAttributes = $request->validated();
 		$movie->update($movieAttributes);
