@@ -11,6 +11,20 @@ use Illuminate\Http\RedirectResponse;
 
 class QuoteController extends Controller
 {
+	public function showQuotes(): View
+	{
+		return view('admin.allquotes', [
+			'quotes'=> Quote::all(),
+		]);
+	}
+
+	public function edit(Quote $quote): View
+	{
+		return view('admin.quote.edit', [
+			'quote'=> $quote,
+		]);
+	}
+
 	public function create(): View
 	{
 		return view('admin.quote.createquote', [
