@@ -13,7 +13,7 @@ class MovieController extends Controller
 	public function showMovies(): View
 	{
 		return view('admin.allmovies', [
-			'movies' => Movie::all(),
+			'movies' => Movie::paginate(8),
 		]);
 	}
 
@@ -35,6 +35,6 @@ class MovieController extends Controller
 	{
 		$movieAttributes = $request->validated();
 		Movie::create($movieAttributes);
-		return redirect()->route('home');
+		return redirect()->route('dashboard.show');
 	}
 }

@@ -5,8 +5,8 @@
      
        <div class=" mt-[14rem] flex  flex-col  items-center">
 
-        <div class="h-[16rem] w-[43rem]  border border-white">
-            <p></p>
+        <div class="h-[16rem] w-[43rem] ">
+            <img src="{{asset('storage/' . $quote->image)}}" class="h-[16rem] w-[43rem] "/>
         </div>
            <h2 class="mt-[4rem] text-white text-[3rem]">{{$quote->body}}</h2>
            <a href="{{route('movie.show',['movie' => $quote->movie->id]) }}">

@@ -20,7 +20,11 @@
 
                 <x-admin.button name="Add a new Quote" />
             </x-admin.link>
+
+            <x-admin.link :route="route('quotes.show_all')">
+
                 <x-admin.button name="See all Quotes" /> 
+            </x-admin.link>
         </x-admin.field>
 
 
