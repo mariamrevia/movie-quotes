@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 
 class MovieController extends Controller
 {
-	public function index()
+	public function showMovies()
 	{
 		return view('admin.allmovies', [
 			'movies' => Movie::all(),
@@ -23,10 +23,16 @@ class MovieController extends Controller
 		]);
 	}
 
+	public function update(MovieRequest $request, Movie $movie)
+	{
+		$movieAttributes = $request->validated();
+		$movie->update($movieAttributes);
+		return redirect()->route('movies.show_all');
+	}
+
 	public function store(MovieRequest $request): RedirectResponse
 	{
 		$movieAttributes = $request->validated();
-
 		Movie::create($movieAttributes);
 		return redirect()->route('home');
 	}
