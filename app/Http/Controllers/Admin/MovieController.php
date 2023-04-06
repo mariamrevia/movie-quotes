@@ -24,8 +24,6 @@ class MovieController extends Controller
 		]);
 	}
 
-
-	
 	public function update(MovieRequest $request, Movie $movie): RedirectResponse
 	{
 		$movieAttributes = $request->validated();
@@ -37,6 +35,6 @@ class MovieController extends Controller
 	{
 		$movieAttributes = $request->validated();
 		Movie::create($movieAttributes);
-		return redirect()->route('home');
+		return redirect()->route('dashboard.show');
 	}
 }

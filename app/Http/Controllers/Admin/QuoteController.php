@@ -27,7 +27,7 @@ class QuoteController extends Controller
 		]);
 	}
 
-	public function update(UpDateQuoteRequest $request, Quote $quote)
+	public function update(UpDateQuoteRequest $request, Quote $quote): RedirectResponse
 	{
 		$quoteAttributes = $request->validated();
 		$quote->update($quoteAttributes);
@@ -43,12 +43,12 @@ class QuoteController extends Controller
 
 	public function store(QuoteRequest $request): RedirectResponse
 	{
-		$quoteAttributes = $request->validated() +
-		[
-			'image' => $request->file('image')->store('images'),
-		];
+		// $quoteAttributes = $request->validated() +
+		// [
+		// 	'image' => $request->file('image')->store('images'),
+		// ];
 
-		Quote::create($quoteAttributes);
-		return redirect()->route('home');
+		Quote::create([...$request->validated(), 'image' => $request->file('image')->store('images')]);
+		return redirect()->route('dashboard.show');
 	}
 }
