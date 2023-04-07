@@ -38,7 +38,7 @@ class MovieController extends Controller
 		return redirect()->route('dashboard.show');
 	}
 
-	public function destroy(Movie $movie)
+	public function destroy(Movie $movie): RedirectResponse
 	{
 		$movie->delete();
 		return redirect()->route('movies.show_all');

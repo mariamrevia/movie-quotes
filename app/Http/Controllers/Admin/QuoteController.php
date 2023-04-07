@@ -52,7 +52,7 @@ class QuoteController extends Controller
 		return redirect()->route('dashboard.show');
 	}
 
-	public function destroy(Quote $quote)
+	public function destroy(Quote $quote): RedirectResponse
 	{
 		$quote->delete();
 		return redirect()->route('quotes.show_all');
