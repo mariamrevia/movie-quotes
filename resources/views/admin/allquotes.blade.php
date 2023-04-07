@@ -30,7 +30,7 @@
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-xl font-medium">
 
-                                            <form method="POST" action="{{ $quote->id }}">
+                                            <form method="POST" action="{{route ('quote.destroy',['quote' =>  $quote->id]) }}">
                                                 @csrf
                                                 @method('DELETE')
 
