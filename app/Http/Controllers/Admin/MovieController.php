@@ -37,4 +37,10 @@ class MovieController extends Controller
 		Movie::create($movieAttributes);
 		return redirect()->route('dashboard.show');
 	}
+
+	public function destroy(Movie $movie)
+	{
+		$movie->delete();
+		return redirect()->route('movies.show_all');
+	}
 }

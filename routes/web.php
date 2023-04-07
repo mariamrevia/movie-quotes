@@ -28,6 +28,8 @@ Route::prefix('admin')->middleware('admin')->group(function () {
 
 	Route::get('movies/{movie}/edit', [AdminMovieController::class, 'edit'])->name('movie.edit');
 	Route::patch('movies/{movie}', [AdminMovieController::class, 'update'])->name('movie.update');
+	Route::delete('movies/{movie}', [AdminMovieController::class, 'destroy'])->name('movie.destroy');
+
 	Route::view('dashboard', 'admin.dashboard')->name('dashboard.show');
 
 	Route::get('quotes/create', [AdminQuoteController::class, 'create'])->name('quotes.create');
