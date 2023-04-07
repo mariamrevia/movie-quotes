@@ -28,6 +28,8 @@ Route::prefix('admin')->middleware('admin')->group(function () {
 
 	Route::get('movies/{movie}/edit', [AdminMovieController::class, 'edit'])->name('movie.edit');
 	Route::patch('movies/{movie}', [AdminMovieController::class, 'update'])->name('movie.update');
+	Route::delete('movies/{movie}', [AdminMovieController::class, 'destroy'])->name('movie.destroy');
+
 	Route::view('dashboard', 'admin.dashboard')->name('dashboard.show');
 
 	Route::get('quotes/create', [AdminQuoteController::class, 'create'])->name('quotes.create');
@@ -36,6 +38,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
 	Route::get('quotes', [AdminQuoteController::class, 'showQuotes'])->name('quotes.show_all');
 	Route::get('quotes/{quote}/edit', [AdminQuoteController::class, 'edit'])->name('quote.edit');
 	Route::patch('quotes/{quote}', [AdminQuoteController::class, 'update'])->name('quote.update');
+	Route::delete('quotes/{quote}', [AdminQuoteController::class, 'destroy'])->name('quote.destroy');
 });
 
 Route::view('login', 'sessions.login')->name('login.view');

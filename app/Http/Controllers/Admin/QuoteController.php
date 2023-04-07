@@ -51,4 +51,10 @@ class QuoteController extends Controller
 		Quote::create([...$request->validated(), 'image' => $request->file('image')->store('images')]);
 		return redirect()->route('dashboard.show');
 	}
+
+	public function destroy(Quote $quote): RedirectResponse
+	{
+		$quote->delete();
+		return redirect()->route('quotes.show_all');
+	}
 }
