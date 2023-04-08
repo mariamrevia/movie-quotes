@@ -8,7 +8,16 @@
             @csrf
 
             <div class="mt-6">
-                <label class="block mb-2 uppercase font-bold text-xl text-gray-700">Quote</label>
+                <label class="block mb-2 uppercase font-bold text-xl text-gray-700">{{__('editquotes.Quote_En')}}</label>
+                <textarea name="body" id="body" class="border border-gray-200 p-2 w-full rounded">{{ old('body', $quote->body) }}</textarea>
+
+
+                @error('body')
+                    <P class="text-red-500 text-xs mt-2">{{ $message }}</P>
+                @enderror
+            </div>
+            <div class="mt-6">
+                <label class="block mb-2 uppercase font-bold text-xl text-gray-700">{{__('editquotes.Quote_Ka')}}</label>
                 <textarea name="body" id="body" class="border border-gray-200 p-2 w-full rounded">{{ old('body', $quote->body) }}</textarea>
 
 
@@ -18,7 +27,7 @@
             </div>
             <div class="mt-6 flex flex-row">
                 <div>
-                <label class="block mb-2 uppercase font-bold text-xl text-gray-700">Image</label>
+                <label class="block mb-2 uppercase font-bold text-xl text-gray-700">{{__('editquotes.Image')}}</label>
                 <input name="image" id="image" class="border border-gray-200 p-2 w-full rounded" type="file" />
             </div>
                 <div>
@@ -36,7 +45,7 @@
 
             <div class="mt-6 mb-1">
 
-                <label name="movies" class="font-bold text-xl mr-2">Movies</label>
+                <label name="movies" class="font-bold text-xl mr-2">{{__('editquotes.Movies')}}</label>
 
 
                 <select name="movie_id" id="movie_id">
@@ -50,7 +59,7 @@
                 <button type="submit"
                     class="bg-blue-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:big-blue-600 mt-5 mb-5 ml-3">
 
-                    Create</button>
+                   {{__('editquotes.Update')}}</button>
 
             </div>
 

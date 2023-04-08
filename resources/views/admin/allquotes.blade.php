@@ -2,7 +2,7 @@
     @if($quotes->count())
     <div class="flex flex-col mt-[11rem] w-[50rem] items-center">
         <h2 class=" text-white uppercase font-semibold 
-         mb-[3rem] text-[2rem]">All Quotes</h2>
+         mb-[3rem] text-[2rem]">{{__('allquotes.ALL_Quotes')}}</h2>
         <div class="flex flex-col">
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="bg-slate-300 py-5 rounded  align-middle inline-block min-w-full sm:px-6 lg:px-8  w-[50rem]">
@@ -24,7 +24,7 @@
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-xl font-medium">
 
                                             <a href="{{ route('quote.edit', ['quote' => $quote->id]) }}"
-                                                class="text-blue-500 hover:text-blue-600">Edit
+                                                class="text-blue-500 hover:text-blue-600">{{__('allmovie.Edit')}}
                                             </a>
 
                                         </td>
@@ -34,7 +34,7 @@
                                                 @csrf
                                                 @method('DELETE')
 
-                                                <button class="text-xl text-red-400">Delete</button>
+                                                <button class="text-xl text-red-400">{{__('allquotes.Delete')}}</button>
                                             </form>
                                         </td>
                                     </tr>
