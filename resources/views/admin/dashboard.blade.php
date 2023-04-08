@@ -10,18 +10,15 @@
             <x-admin.link :route="route('movies.show_all')">
                 <x-admin.button :name="__('dash.See_Movies')"/>
             </x-admin.link>
-
         </x-admin.field>
 
         <x-admin.field>
             <x-admin.heading :name=" __('dash.Manage_Quotes')" />
             <x-admin.link :route="route('quotes.create')">
-
                 <x-admin.button :name="__('dash.New_Quote')" />
             </x-admin.link>
 
             <x-admin.link :route="route('quotes.show_all')">
-
                 <x-admin.button :name="__('dash.See_Quotes')"/> 
             </x-admin.link>
         </x-admin.field>

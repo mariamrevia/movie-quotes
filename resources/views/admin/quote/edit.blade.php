@@ -6,48 +6,28 @@
             @method('PATCH')
 
             @csrf
+            <x-admin.textarea name="body" :text="__('editquotes.Quote_En')"> {{ old('body', $quote->body) }}</x-admin.textarea>
+            <x-admin.textarea name="body" :text="__('editquotes.Quote_Ka')"> {{ old('body', $quote->body) }}</x-admin.textarea>
 
-            <div class="mt-6">
-                <label class="block mb-2 uppercase font-bold text-xl text-gray-700">{{__('editquotes.Quote_En')}}</label>
-                <textarea name="body" id="body" class="border border-gray-200 p-2 w-full rounded">{{ old('body', $quote->body) }}</textarea>
-
-
-                @error('body')
-                    <P class="text-red-500 text-xs mt-2">{{ $message }}</P>
-                @enderror
-            </div>
-            <div class="mt-6">
-                <label class="block mb-2 uppercase font-bold text-xl text-gray-700">{{__('editquotes.Quote_Ka')}}</label>
-                <textarea name="body" id="body" class="border border-gray-200 p-2 w-full rounded">{{ old('body', $quote->body) }}</textarea>
-
-
-                @error('body')
-                    <P class="text-red-500 text-xs mt-2">{{ $message }}</P>
-                @enderror
-            </div>
             <div class="mt-6 flex flex-row">
                 <div>
-                <label class="block mb-2 uppercase font-bold text-xl text-gray-700">{{__('editquotes.Image')}}</label>
-                <input name="image" id="image" class="border border-gray-200 p-2 w-full rounded" type="file" />
-            </div>
-                <div>
+                    <label
+                        class="block mb-2 uppercase font-bold text-xl text-gray-700">{{ __('editquotes.Image') }}</label>
+                    <input name="image" id="image" class="border border-gray-200 p-2 w-full rounded"
+                        type="file" />
+                </div>
 
+                <div>
                     <img src="{{ asset('storage/' . $quote->image) }}" alt=""
                         class="rounded-xl ml-6 w-[3rem] h-[2rem] " width="100">
                 </div>
 
-
-
-                @error('image')
-                    <P class="text-red-500 text-xs mt-2">{{ $message }}</P>
-                @enderror
+                <x-admin.error name="image" />
             </div>
 
+
             <div class="mt-6 mb-1">
-
-                <label name="movies" class="font-bold text-xl mr-2">{{__('editquotes.Movies')}}</label>
-
-
+                <label name="movies" class="font-bold text-xl mr-2">{{ __('editquotes.Movies') }}</label>
                 <select name="movie_id" id="movie_id">
 
                     @foreach ($movies as $movie)
@@ -57,18 +37,10 @@
                 </select>
 
                 <button type="submit"
-                    class="bg-blue-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:big-blue-600 mt-5 mb-5 ml-3">
-
-                   {{__('editquotes.Update')}}</button>
-
+                    class="bg-red-300 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:big-blue-600 mt-5 mb-5 ml-3">
+                    {{ __('editquotes.Update') }}</button>
             </div>
-
-
-
-
         </form>
-
-
     </div>
 
 </x-layout>
