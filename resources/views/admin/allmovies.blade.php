@@ -1,12 +1,18 @@
 <x-layout>
 
     @if($movies->count())
-    <div class="flex flex-col mt-[11rem] w-[50rem] items-center">
-        <h2 class=" text-white uppercase font-semibold 
-         mb-[3rem] text-[2rem]">{{__('allmovie.ALL_Movie')}}</h2>
+    <div class="flex flex-col mt-[11rem] w-[55rem] items-center">
         <div class="flex flex-col">
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                <div class="bg-slate-300 py-5 rounded  align-middle inline-block min-w-full sm:px-6 lg:px-8 w-[50rem]">
+                <div class="bg-slate-300 py-5 rounded  align-middle inline-block min-w-full sm:px-6 lg:px-8 w-[55rem]">
+                    <div class="flex flex-row justify-between">
+
+                        <h2 class="flex items-center text-white uppercase font-semibold 
+                         text-[2rem]">{{__('allmovie.ALL_Movie')}}</h2>
+                         <x-admin.link :route="route('dashboard.show')">
+                            <x-admin.button  :name="__('allmovie.Dash')"/> 
+                        </x-admin.link>
+                    </div>
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                         <table class="min-w-dull divide-y divide-gray-200">
                             <tbody class="bg-white divide-y divide-gray-200">
@@ -42,15 +48,17 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <div class="mt-[1rem] ml-[2rem]">
+            
+                            {{$movies->links()}}
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="mt-[1rem] ml-[2rem]">
 
-            {{$movies->links()}}
-        </div>
+       
 
     </div>
 

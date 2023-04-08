@@ -2,7 +2,16 @@
 
     <div class="bg-slate-300 w-50 h-35 mt-[17rem] border rounded flex flex-col justify-center">
 
-        <h2 class="text-center font-bold text-2">{{__('newmovie.Add_Movie')}}</h2>
+        {{-- <h2 class="text-center font-bold text-2">{{__('newmovie.Add_Movie')}}</h2> --}}
+
+        <div class="flex flex-row justify-between pr-10 pl-10">
+
+            <h2 class="flex items-center text-white uppercase font-semibold 
+             text-[2rem]">{{__('newmovie.Add_Movie')}}</h2>
+             <x-admin.link :route="route('dashboard.show')">
+                <x-admin.button  :name="__('allmovie.Dash')"/> 
+            </x-admin.link>
+        </div>
         <form class="pr-10 pl-10" method="POST" action="{{route('movies.store')}}" enctype="multipart/form-data">
 
             @csrf

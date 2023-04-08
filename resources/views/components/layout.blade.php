@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <div class="flex justify-center h-screen w-screen bg-gradient ">
+    <div class="flex justify-center min-h-screen  bg-gradient ">
         <form method="POST" action="{{ route('lang.switch',['switch']) }}">
             @csrf
 

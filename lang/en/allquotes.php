@@ -1,9 +1,9 @@
 <?php
 
-
-return 
+return
 [
-    'ALL_Quotes'=> 'ALL Quotes',
-	'Edit'     => 'Edit',
-	'Delete'   => 'Delete',
+	'ALL_Quotes'=> 'ALL Quotes',
+	'Edit'      => 'Edit',
+	'Delete'    => 'Delete',
+	'Dash'      => 'Dashboard',
 ];
