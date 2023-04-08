@@ -9,6 +9,7 @@ use App\Models\Quote;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
 
 class QuoteController extends Controller
 {
@@ -30,6 +31,14 @@ class QuoteController extends Controller
 	public function update(UpDateQuoteRequest $request, Quote $quote): RedirectResponse
 	{
 		$quoteAttributes = $request->validated();
+
+		if ($request->hasFile('image'))
+		{
+			Storage::delete($quote->image);
+			$quoteAttributes['image'] = $request->file('image')->store('images');
+			$quote->setAttribute('image', $quoteAttributes['image']);
+		}
+
 		$quote->update($quoteAttributes);
 		return redirect()->route('quotes.show_all');
 	}
