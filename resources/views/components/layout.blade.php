@@ -16,12 +16,12 @@
 
 <body>
     <div class="flex justify-center min-h-screen  bg-gradient ">
-        <form method="POST" action="{{ route('lang.switch',['switch']) }}">
+        <form method="POST" action="{{ route('languages.switch',['lang']) }}">
             @csrf
 
             <div class="absolute top-[34rem] left-[3rem] gap-11 flex flex-col">
-                <button type='submit' name="locale" value="en" class="h-[4rem] w-[4rem] border border-white rounded-full">En</button>
-                <button type='submit' name="locale" value="ka" class="h-[4rem] w-[4rem] border border-white rounded-full">Ka</button>
+                <button type='submit' name="locale" value="en" class="h-[4rem] w-[4rem] border border-white rounded-full {{ App::getLocale() === 'en' ?  'bg-white' : '' }}">En</button>
+                <button type='submit' name="locale" value="ka" class="h-[4rem] w-[4rem] border border-white rounded-full {{ App::getLocale() === 'ka' ? 'bg-white' : '' }}">Ka</button>
             </div>
 
         </form>

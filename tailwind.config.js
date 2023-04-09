@@ -40,6 +40,7 @@ module.exports = {
       fontFamily: {
         'San': 'Sansation'
       }
+      
     },
   },
   plugins: [],
