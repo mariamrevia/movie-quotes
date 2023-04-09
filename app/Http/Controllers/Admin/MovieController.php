@@ -13,7 +13,7 @@ class MovieController extends Controller
 	public function showMovies(): View
 	{
 		return view('admin.allmovies', [
-			'movies' => Movie::paginate(8),
+			'movies' => Movie::latest()->paginate(8),
 		]);
 	}
 
@@ -27,6 +27,10 @@ class MovieController extends Controller
 	public function update(MovieRequest $request, Movie $movie): RedirectResponse
 	{
 		$movieAttributes = $request->validated();
+
+		$movie->setTranslation('title', 'en', $movieAttributes['title']['en']);
+		$movie->setTranslation('title', 'ka', $movieAttributes['title']['ka']);
+		$movie->save();
 		$movie->update($movieAttributes);
 		return redirect()->route('movies.show_all');
 	}
@@ -34,7 +38,13 @@ class MovieController extends Controller
 	public function store(MovieRequest $request): RedirectResponse
 	{
 		$movieAttributes = $request->validated();
-		Movie::create($movieAttributes);
+
+		$movie = new Movie();
+		$movie->setTranslation('title', 'en', $movieAttributes['title']['en']);
+		$movie->setTranslation('title', 'ka', $movieAttributes['title']['ka']);
+		$movie->save();
+
+		// Movie::create($movieAttributes);
 		return redirect()->route('dashboard.show');
 	}
 

@@ -13,8 +13,8 @@
 
             @csrf
 
-            <x-admin.input name="title" :text="__('newmovie.Movie_En')"/>
-            <x-admin.input name="title" :text="__('newmovie.Movie_Ka')"/>
+            <x-admin.input name="title[en]" :text="__('newmovie.Movie_En')"/>
+            <x-admin.input name="title[ka]" :text="__('newmovie.Movie_Ka')"/>
         
             <button type="submit"
                 class="bg-red-300 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:big-blue-600 mt-5 mb-5">

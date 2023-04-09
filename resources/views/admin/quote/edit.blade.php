@@ -6,8 +6,8 @@
             @method('PATCH')
 
             @csrf
-            <x-admin.textarea name="body" :text="__('editquotes.Quote_En')"> {{ old('body', $quote->body) }}</x-admin.textarea>
-            <x-admin.textarea name="body" :text="__('editquotes.Quote_Ka')"> {{ old('body', $quote->body) }}</x-admin.textarea>
+            <x-admin.textarea name="body[en]" :text="__('editquotes.Quote_En')"> {{ old('body.en',  $quote->getTranslation('body', 'en')) }}</x-admin.textarea>
+            <x-admin.textarea name="body[ka]" :text="__('editquotes.Quote_Ka')"> {{ old('body.ka', $quote->getTranslation('body', 'ka')) }}</x-admin.textarea>
 
             <div class="mt-6 flex flex-row">
                 <div>
@@ -17,9 +17,9 @@
                         type="file" />
                 </div>
 
-                <div>
+                <div class="flex justify-center items-end">
                     <img src="{{ asset('storage/' . $quote->image) }}" alt=""
-                        class="rounded-xl ml-6 w-[3rem] h-[2rem] " width="100">
+                        class="rounded-xl ml-6 w-[6rem] h-[4rem] " >
                 </div>
 
                 <x-admin.error name="image" />
@@ -27,7 +27,7 @@
 
 
             <div class="mt-6 mb-1">
-                <label name="movies" class="font-bold text-xl mr-2">{{ __('editquotes.Movies') }}</label>
+                <label name="movies" class="font-bold text-xl mr-2">{{ __('editquotes.Movie') }}</label>
                 <select name="movie_id" id="movie_id">
 
                     @foreach ($movies as $movie)

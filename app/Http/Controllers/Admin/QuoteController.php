@@ -16,7 +16,8 @@ class QuoteController extends Controller
 	public function showQuotes(): View
 	{
 		return view('admin.allquotes', [
-			'quotes'=> Quote::paginate(8),
+			'quotes'=> Quote:: latest()->paginate(8),
+			
 		]);
 	}
 
@@ -39,7 +40,16 @@ class QuoteController extends Controller
 			$quote->setAttribute('image', $quoteAttributes['image']);
 		}
 
+		// $quote = new Quote();
+
+		$quote->setTranslation('body', 'en', $quoteAttributes['body']['en']);
+		$quote->setTranslation('body', 'ka', $quoteAttributes['body']['ka']);
+		// $quote->setAttribute('image'  ,$quoteAttributes['image'] );
+		$quote->setAttribute('movie_id', $quoteAttributes['movie_id']);
+		$quote->save();
+
 		$quote->update($quoteAttributes);
+
 		return redirect()->route('quotes.show_all');
 	}
 
@@ -57,7 +67,19 @@ class QuoteController extends Controller
 		// 	'image' => $request->file('image')->store('images'),
 		// ];
 
-		Quote::create([...$request->validated(), 'image' => $request->file('image')->store('images')]);
+		$quoteAttributes = [...$request->validated(), 'image' => $request->file('image')->store('images')];
+		$quote = new Quote();
+
+		$quote->setTranslation('body', 'en', $quoteAttributes['body']['en']);
+		$quote->setTranslation('body', 'ka', $quoteAttributes['body']['ka']);
+		$quote->setAttribute('image', $quoteAttributes['image']);
+		$quote->setAttribute('movie_id', $quoteAttributes['movie_id']);
+		$quote->save();
+
+		// $quote->setTranslation('ka', 'body', $request->input('body'));
+
+		// Quote::create();
+
 		return redirect()->route('dashboard.show');
 	}
 

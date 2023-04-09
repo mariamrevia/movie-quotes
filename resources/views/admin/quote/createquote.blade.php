@@ -13,8 +13,8 @@
 
             @csrf
 
-           <x-admin.textarea name="body" :text="__('newquote.Quote_En')"/>
-            <x-admin.textarea name="body" :text="__('newquote.Quote_Ka')"/>
+           <x-admin.textarea name="body[en]" :text="__('newquote.Quote_En')"/>
+            <x-admin.textarea name="body[ka]" :text="__('newquote.Quote_Ka')"/>
             <x-admin.input name="image" type="file" :text="__('newquote.Image')" />
         
             <div class="mt-6 mb-1">

@@ -16,7 +16,7 @@
 
 <body>
     <div class="flex justify-center min-h-screen  bg-gradient ">
-        <form method="POST" action="{{ route('languages.switch',['lang']) }}">
+        <form method="POST" action="{{ route('languages.switch') }}">
             @csrf
 
             <div class="absolute top-[34rem] left-[3rem] gap-11 flex flex-col">
