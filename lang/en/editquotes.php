@@ -7,4 +7,5 @@ return [
 	'Update'     => 'Update',
 	'Movie'      => 'Movie',
 	'Image'      => 'Image',
+	'Edit_Quote' => 'Edit Quote',
 ];
