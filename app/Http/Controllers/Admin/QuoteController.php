@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\Admin\StoreQuoteRequest;
-use App\Http\Requests\Admin\UpDateQuoteRequest;
+use App\Http\Requests\Quote\StoreQuoteRequest;
+use App\Http\Requests\Quote\UpDateQuoteRequest;
 use App\Models\Movie;
 use App\Models\Quote;
 use App\Http\Controllers\Controller;
