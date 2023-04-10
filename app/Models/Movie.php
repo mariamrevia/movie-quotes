@@ -11,11 +11,11 @@ class Movie extends Model
 {
 	use HasFactory;
 
-	protected $guarded = ['id'];
-
 	use HasTranslations;
 
 	public $translatable = ['title'];
+
+	protected $guarded = ['id'];
 
 	public function quotes(): HasMany
 	{
