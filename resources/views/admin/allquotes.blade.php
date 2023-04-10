@@ -26,7 +26,7 @@
                                             </div>
                                         </td>
 
-                                        <td class="px-6 py-4 whitespace-nowrap text-right text-xl font-medium">
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-xl font-medium w-[10rem]">
 
                                             <a href="{{ route('quote.edit', ['quote' => $quote->id]) }}"
                                                 class="text-blue-500 hover:text-blue-600">{{__('allmovie.Edit')}}
