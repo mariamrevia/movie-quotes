@@ -14,11 +14,11 @@
             @method('PATCH')
             
             @csrf
-            <x-admin.textarea name="body[en]" :text="__('editquotes.Quote_En')"> {{ old('body.en',  $quote->getTranslation('body', 'en')) }}</x-admin.textarea>
-            <x-admin.textarea name="body[ka]" :text="__('editquotes.Quote_Ka')"> {{ old('body.ka', $quote->getTranslation('body', 'ka')) }}</x-admin.textarea>
+            <x-admin.textarea name="body[en]" errorname="body.en" :text="__('editquotes.Quote_En')"> {{ old('body.en',  $quote->getTranslation('body', 'en')) }}</x-admin.textarea>
+            <x-admin.textarea name="body[ka]" errorname="body.en" :text="__('editquotes.Quote_Ka')"> {{ old('body.ka', $quote->getTranslation('body', 'ka')) }}</x-admin.textarea>
 
             <div class="mt-6 flex flex-row">
-                <x-admin.input name="image" :text=" __('editquotes.Image')" type="file"/>
+                <x-admin.input name="image" errorname="image" :text=" __('editquotes.Image')" type="file"/>
                 <div class="flex justify-center items-end">
                     <img src="{{ asset('storage/' . $quote->image) }}" alt=""
                         class="rounded-xl ml-6 w-[6rem] h-[4rem] " >
