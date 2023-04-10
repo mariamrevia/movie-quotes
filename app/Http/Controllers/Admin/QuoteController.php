@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Storage;
 
 class QuoteController extends Controller
 {
-	public function showQuotes(): View
+	public function show(): View
 	{
-		return view('admin.allquotes', [
+		return view('admin.quotes', [
 			'quotes'=> Quote::latest()->simplePaginate(8),
 		]);
 	}

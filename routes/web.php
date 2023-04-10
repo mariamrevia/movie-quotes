@@ -27,7 +27,7 @@ Route::get('/languages/{switch}', [LanguageController::class, 'switch'])->name('
 Route::prefix('admin')->middleware('admin')->group(function () {
 	Route::view('movies/create', 'admin.movie.createmovie')->name('movies.create');
 	Route::post('movies', [AdminMovieController::class, 'store'])->name('movies.store');
-	Route::get('movies', [AdminMovieController::class, 'showMovies'])->name('movies.show_all');
+	Route::get('movies', [AdminMovieController::class, 'show'])->name('movies.show_all');
 
 	Route::get('movies/{movie}/edit', [AdminMovieController::class, 'edit'])->name('movie.edit');
 	Route::patch('movies/{movie}', [AdminMovieController::class, 'update'])->name('movie.update');
@@ -38,7 +38,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
 	Route::get('quotes/create', [AdminQuoteController::class, 'create'])->name('quotes.create');
 	Route::post('quotes', [AdminQuoteController::class, 'store'])->name('quotes.store');
 
-	Route::get('quotes', [AdminQuoteController::class, 'showQuotes'])->name('quotes.show_all');
+	Route::get('quotes', [AdminQuoteController::class, 'show'])->name('quotes.show_all');
 	Route::get('quotes/{quote}/edit', [AdminQuoteController::class, 'edit'])->name('quote.edit');
 	Route::patch('quotes/{quote}', [AdminQuoteController::class, 'update'])->name('quote.update');
 	Route::delete('quotes/{quote}', [AdminQuoteController::class, 'destroy'])->name('quote.destroy');

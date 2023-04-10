@@ -10,9 +10,9 @@ use Illuminate\Contracts\View\View;
 
 class MovieController extends Controller
 {
-	public function showMovies(): View
+	public function show(): View
 	{
-		return view('admin.allmovies', [
+		return view('admin.movies', [
 			'movies' => Movie::latest()->simplePaginate(8),
 		]);
 	}
