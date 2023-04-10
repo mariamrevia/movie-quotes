@@ -35,9 +35,7 @@
                         <option  value="{{ $movie->id }}"{{ old('movie_id') }}>{{ ucwords($movie->title) }}
                         </option>
                     @endforeach
-                    @error('movie_id')
-                    <P class="text-red-500 text-xs mt-2">{{ $message }}</P>    
-                    @enderror
+                  
                 </select>
 
                 <button type="submit"
