@@ -28,7 +28,7 @@ class QuoteController extends Controller
 		]);
 	}
 
-	public function update(UpDateQuoteRequest $request, Quote $quote): RedirectResponse
+	public function update(UpdateQuoteRequest $request, Quote $quote): RedirectResponse
 	{
 		$quoteAttributes = $request->validated();
 
