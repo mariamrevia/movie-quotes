@@ -43,7 +43,7 @@ class QuoteController extends Controller
 
 		$quote->setTranslation('body', 'en', $quoteAttributes['body']['en']);
 		$quote->setTranslation('body', 'ka', $quoteAttributes['body']['ka']);
-		// $quote->setAttribute('image'  ,$quoteAttributes['image'] );
+		// $quote->setAttribute('image', $quoteAttributes['image']);
 		$quote->setAttribute('movie_id', $quoteAttributes['movie_id']);
 		$quote->save();
 

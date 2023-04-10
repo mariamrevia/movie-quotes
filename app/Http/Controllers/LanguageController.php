@@ -2,16 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class LanguageController extends Controller
 {
-	public function switch(Request $request)
+	public function switch($locale)
 	{
-		$locale = $request->input('locale');
-
 		session()->put('locale', $locale);
 		app()->setLocale($locale);
-		return redirect()->back();
+		return back();
 	}
 }
