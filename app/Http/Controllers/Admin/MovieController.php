@@ -27,17 +27,13 @@ class MovieController extends Controller
 
 	public function update(UpdateMovieRequest $request, Movie $movie): RedirectResponse
 	{
-		$movieAttributes = $request->validated();
-
-		$movie->update($movieAttributes);
+		$movie->update($request->validated());
 		return redirect()->route('movies.show_all');
 	}
 
 	public function store(StoreMovieRequest $request): RedirectResponse
 	{
-		$movieAttributes = $request->validated();
-
-		Movie::create($movieAttributes);
+		Movie::create($request->validated());
 		return redirect()->route('dashboard.show');
 	}
 

@@ -39,7 +39,6 @@ class QuoteController extends Controller
 		}
 
 		$quote->update($quoteAttributes);
-
 		return redirect()->route('quotes.show_all');
 	}
 
@@ -52,9 +51,7 @@ class QuoteController extends Controller
 
 	public function store(StoreQuoteRequest $request): RedirectResponse
 	{
-		$quoteAttributes = [...$request->validated(), 'image' => $request->file('image')->store('images')];
-		Quote::create($quoteAttributes);
-
+		Quote::create([...$request->validated(), 'image' => $request->file('image')->store('images')]);
 		return redirect()->route('dashboard.show');
 	}
 
