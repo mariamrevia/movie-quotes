@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class QuoteRequest extends FormRequest
+class StoreQuoteRequest extends FormRequest
 {
 	public function rules(): array
 	{

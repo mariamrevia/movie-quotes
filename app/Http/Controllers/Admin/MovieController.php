@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\Admin\MovieRequest;
+use App\Http\Requests\Admin\StoreMovieRequest;
+use App\Http\Requests\Admin\UpdateMovieRequest;
 use App\Models\Movie;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Controllers\Controller;
@@ -24,7 +25,7 @@ class MovieController extends Controller
 		]);
 	}
 
-	public function update(MovieRequest $request, Movie $movie): RedirectResponse
+	public function update(UpdateMovieRequest $request, Movie $movie): RedirectResponse
 	{
 		$movieAttributes = $request->validated();
 
@@ -32,7 +33,7 @@ class MovieController extends Controller
 		return redirect()->route('movies.show_all');
 	}
 
-	public function store(MovieRequest $request): RedirectResponse
+	public function store(StoreMovieRequest $request): RedirectResponse
 	{
 		$movieAttributes = $request->validated();
 

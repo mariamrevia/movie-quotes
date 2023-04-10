@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\Admin\QuoteRequest;
+use App\Http\Requests\Admin\StoreQuoteRequest;
 use App\Http\Requests\Admin\UpDateQuoteRequest;
 use App\Models\Movie;
 use App\Models\Quote;
@@ -50,7 +50,7 @@ class QuoteController extends Controller
 		]);
 	}
 
-	public function store(QuoteRequest $request): RedirectResponse
+	public function store(StoreQuoteRequest $request): RedirectResponse
 	{
 		$quoteAttributes = [...$request->validated(), 'image' => $request->file('image')->store('images')];
 		Quote::create($quoteAttributes);
