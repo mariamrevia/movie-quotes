@@ -36,16 +36,7 @@ class QuoteController extends Controller
 		{
 			Storage::delete($quote->image);
 			$quoteAttributes['image'] = $request->file('image')->store('images');
-			$quote->setAttribute('image', $quoteAttributes['image']);
 		}
-
-		// $quote = new Quote();
-
-		$quote->setTranslation('body', 'en', $quoteAttributes['body']['en']);
-		$quote->setTranslation('body', 'ka', $quoteAttributes['body']['ka']);
-		// $quote->setAttribute('image', $quoteAttributes['image']);
-		$quote->setAttribute('movie_id', $quoteAttributes['movie_id']);
-		$quote->save();
 
 		$quote->update($quoteAttributes);
 
@@ -61,23 +52,8 @@ class QuoteController extends Controller
 
 	public function store(QuoteRequest $request): RedirectResponse
 	{
-		// $quoteAttributes = $request->validated() +
-		// [
-		// 	'image' => $request->file('image')->store('images'),
-		// ];
-
 		$quoteAttributes = [...$request->validated(), 'image' => $request->file('image')->store('images')];
-		$quote = new Quote();
-
-		$quote->setTranslation('body', 'en', $quoteAttributes['body']['en']);
-		$quote->setTranslation('body', 'ka', $quoteAttributes['body']['ka']);
-		$quote->setAttribute('image', $quoteAttributes['image']);
-		$quote->setAttribute('movie_id', $quoteAttributes['movie_id']);
-		$quote->save();
-
-		// $quote->setTranslation('ka', 'body', $request->input('body'));
-
-		// Quote::create();
+		Quote::create($quoteAttributes);
 
 		return redirect()->route('dashboard.show');
 	}
