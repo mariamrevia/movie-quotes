@@ -44,7 +44,7 @@ class QuoteController extends Controller
 
 	public function create(): View
 	{
-		return view('admin.quote.createquote', [
+		return view('admin.quote.create', [
 			'movies' => Movie::all(),
 		]);
 	}

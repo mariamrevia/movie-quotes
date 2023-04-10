@@ -25,7 +25,7 @@ Route::get('movies/{movie}', [MovieController::class, 'showMovie'])->name('movie
 Route::get('/languages/{switch}', [LanguageController::class, 'switch'])->name('languages.switch');
 
 Route::prefix('admin')->middleware('admin')->group(function () {
-	Route::view('movies/create', 'admin.movie.createmovie')->name('movies.create');
+	Route::view('movies/create', 'admin.movie.create')->name('movies.create');
 	Route::post('movies', [AdminMovieController::class, 'store'])->name('movies.store');
 	Route::get('movies', [AdminMovieController::class, 'show'])->name('movies.show_all');
 
