@@ -24,24 +24,25 @@ Route::get('movies/{movie}', [MovieController::class, 'showMovie'])->name('movie
 
 Route::get('/languages/{switch}', [LanguageController::class, 'switch'])->name('languages.switch');
 
-Route::prefix('admin')->middleware('admin')->group(function () {
+Route::controller(AdminMovieController::class)->prefix('admin')->middleware('admin')->group(function () {
 	Route::view('movies/create', 'admin.movie.create')->name('movies.create');
-	Route::post('movies', [AdminMovieController::class, 'store'])->name('movies.store');
-	Route::get('movies', [AdminMovieController::class, 'show'])->name('movies.show_all');
+	Route::post('movies', 'store')->name('movies.store');
+	Route::get('movies', 'show')->name('movies.show_all');
 
-	Route::get('movies/{movie}/edit', [AdminMovieController::class, 'edit'])->name('movie.edit');
-	Route::patch('movies/{movie}', [AdminMovieController::class, 'update'])->name('movie.update');
-	Route::delete('movies/{movie}', [AdminMovieController::class, 'destroy'])->name('movie.destroy');
-
+	Route::get('movies/{movie}/edit', 'edit')->name('movie.edit');
+	Route::patch('movies/{movie}', 'update')->name('movie.update');
+	Route::delete('movies/{movie}', 'destroy')->name('movie.destroy');
 	Route::view('dashboard', 'admin.dashboard')->name('dashboard.show');
+});
 
-	Route::get('quotes/create', [AdminQuoteController::class, 'create'])->name('quotes.create');
-	Route::post('quotes', [AdminQuoteController::class, 'store'])->name('quotes.store');
+Route::controller(AdminQuoteController::class)->prefix('admin')->middleware('admin')->group(function () {
+	Route::get('quotes/create', 'create')->name('quotes.create');
+	Route::post('quotes', 'store')->name('quotes.store');
 
-	Route::get('quotes', [AdminQuoteController::class, 'show'])->name('quotes.show_all');
-	Route::get('quotes/{quote}/edit', [AdminQuoteController::class, 'edit'])->name('quote.edit');
-	Route::patch('quotes/{quote}', [AdminQuoteController::class, 'update'])->name('quote.update');
-	Route::delete('quotes/{quote}', [AdminQuoteController::class, 'destroy'])->name('quote.destroy');
+	Route::get('quotes', 'show')->name('quotes.show_all');
+	Route::get('quotes/{quote}/edit', 'edit')->name('quote.edit');
+	Route::patch('quotes/{quote}', 'update')->name('quote.update');
+	Route::delete('quotes/{quote}', 'destroy')->name('quote.destroy');
 });
 
 Route::view('login', 'sessions.login')->name('login.view');
