@@ -16,8 +16,7 @@ class QuoteController extends Controller
 	public function showQuotes(): View
 	{
 		return view('admin.allquotes', [
-			'quotes'=> Quote:: latest()->paginate(8),
-			
+			'quotes'=> Quote::latest()->simplePaginate(8),
 		]);
 	}
 

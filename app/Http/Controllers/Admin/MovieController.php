@@ -13,7 +13,7 @@ class MovieController extends Controller
 	public function showMovies(): View
 	{
 		return view('admin.allmovies', [
-			'movies' => Movie::latest()->paginate(8),
+			'movies' => Movie::latest()->simplePaginate(8),
 		]);
 	}
 
