@@ -9,8 +9,8 @@ class QuoteRequest extends FormRequest
 	public function rules(): array
 	{
 		return [
-			'body[en]'     => 'required',
-			'body[ka]'     => 'required',
+			'body.en'      => 'required',
+			'body.ka'      => 'required',
 			'image'        => 'required|image',
 			'movie_id'     => 'required|exists:movies,id',
 		];

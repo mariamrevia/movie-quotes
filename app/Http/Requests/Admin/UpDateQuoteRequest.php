@@ -9,8 +9,8 @@ class UpDateQuoteRequest extends FormRequest
 	public function rules(): array
 	{
 		return [
-			'body[ka]'    => 'required',
-			'body[en]'    => 'required',
+			'body.en'     => 'required',
+			'body.ka'     => 'required',
 			'image'       => 'image',
 			'movie_id'    => 'required|exists:movies,id',
 		];
