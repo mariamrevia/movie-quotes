@@ -9,7 +9,8 @@ class MovieRequest extends FormRequest
 	public function rules(): array
 	{
 		return [
-			'title' => 'required|unique:movies,title',
+			'title.en' => ['required', 'unique:movies,title->en'],
+			'title.ka' => ['required', 'unique:movies,title->ka'],
 		];
 	}
 }

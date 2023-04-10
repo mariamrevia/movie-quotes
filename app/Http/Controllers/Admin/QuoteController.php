@@ -9,13 +9,14 @@ use App\Models\Quote;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
 
 class QuoteController extends Controller
 {
 	public function showQuotes(): View
 	{
 		return view('admin.allquotes', [
-			'quotes'=> Quote::paginate(8),
+			'quotes'=> Quote::latest()->simplePaginate(8),
 		]);
 	}
 
@@ -30,7 +31,15 @@ class QuoteController extends Controller
 	public function update(UpDateQuoteRequest $request, Quote $quote): RedirectResponse
 	{
 		$quoteAttributes = $request->validated();
+
+		if ($request->hasFile('image'))
+		{
+			Storage::delete($quote->image);
+			$quoteAttributes['image'] = $request->file('image')->store('images');
+		}
+
 		$quote->update($quoteAttributes);
+
 		return redirect()->route('quotes.show_all');
 	}
 
@@ -43,12 +52,9 @@ class QuoteController extends Controller
 
 	public function store(QuoteRequest $request): RedirectResponse
 	{
-		// $quoteAttributes = $request->validated() +
-		// [
-		// 	'image' => $request->file('image')->store('images'),
-		// ];
+		$quoteAttributes = [...$request->validated(), 'image' => $request->file('image')->store('images')];
+		Quote::create($quoteAttributes);
 
-		Quote::create([...$request->validated(), 'image' => $request->file('image')->store('images')]);
 		return redirect()->route('dashboard.show');
 	}
 

@@ -15,12 +15,20 @@
 </head>
 
 <body>
-    <div class="flex justify-center h-screen w-screen bg-gradient ">
-        <div class="absolute top-[34rem] left-[3rem] gap-11 flex flex-col">
-            <button class="h-[4rem] w-[4rem] border border-white rounded-full"></button>
-            <button class="h-[4rem] w-[4rem] border border-white rounded-full"></button>
-        </div>
+    <div class="flex justify-center min-h-screen  bg-gradient ">
+        {{-- <form method="POST" action="{{ route('languages.switch') }}">
+            @csrf
 
+            <div class="absolute top-[34rem] left-[3rem] gap-11 flex flex-col">
+                <button type='submit' name="locale" value="en" class="h-[4rem] w-[4rem] border border-white rounded-full {{ App::getLocale() === 'en' ?  'bg-white' : '' }}">En</button>
+                <button type='submit' name="locale" value="ka" class="h-[4rem] w-[4rem] border border-white rounded-full {{ App::getLocale() === 'ka' ? 'bg-white' : '' }}">Ka</button>
+            </div>
+
+        </form> --}}
+        <div class="absolute top-[34rem] left-[3rem] gap-11 flex flex-col">
+            <a href="{{ route('languages.switch','en') }}" class="h-[4rem] w-[4rem] border border-white rounded-full flex items-center justify-center {{ App::getLocale() === 'en' ?  'bg-white' : '' }}">En</a>
+            <a href="{{ route('languages.switch','ka') }}" class="h-[4rem] w-[4rem] border border-white rounded-full flex items-center justify-center {{ App::getLocale() === 'ka' ?  'bg-white' : '' }}">Ka</a>        
+        </div>
         {{ $slot }}
 
     </div>

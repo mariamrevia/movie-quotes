@@ -9,9 +9,10 @@ class QuoteRequest extends FormRequest
 	public function rules(): array
 	{
 		return [
-			'body'    => 'required',
-			'image'   => 'required|image',
-			'movie_id'=> 'required|exists:movies,id',
+			'body.en'      => 'required',
+			'body.ka'      => 'required',
+			'image'        => 'required|image',
+			'movie_id'     => 'required|exists:movies,id',
 		];
 	}
 }

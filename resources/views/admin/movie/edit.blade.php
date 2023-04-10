@@ -1,42 +1,26 @@
 <x-layout>
 
     <div class="bg-slate-300 w-50 h-35 mt-[17rem] border rounded flex flex-col justify-center">
-
-        <h2 class="text-center font-bold text-2">Edit Movie</h2>
+        <div class="flex flex-row justify-between pr-10 pl-10">
+            <h2 class="flex items-center text-white uppercase font-semibold 
+             text-[2rem]">{{ __('editmovie.Edit_Movie') }}</h2>
+             <x-admin.link :route="route('dashboard.show')">
+                <x-admin.button  :name="__('allmovie.Dash')"/> 
+            </x-admin.link>
+        </div>
         <form class="pr-10 pl-10" method="POST" action="{{ route('movie.update', ['movie' => $movie->id]) }}"
             enctype="multipart/form-data">
             @method('PATCH')
 
 
             @csrf
-
-            <div class="mt-6">
-                <label class="block mb-2 uppercase font-bold text-xl text-white-700">Movie in English</label>
-                <input value="{{ old('title', $movie->title) }}" name="title" id="title"
-                    class="border border-gray-200 p-2 w-full rounded" />
-            </div>
-            {{-- <div class="mt-6">
-            <label 
-            class="block mb-2 uppercase font-bold text-xl text-gray-700">Movie in Goergian</label>
-            <input 
-            name="title" 
-            id="title"
-            class="border border-gray-200 p-2 w-full rounded" />
-
-
-        </div> --}}
-
-
-
-
-            @error('title')
-                <P class="text-red-500 text-xs mt-2">{{ $message }}</P>
-            @enderror
+            <x-admin.input name="title[en]" errorname="title.en" :value=" old('title.en', $movie->getTranslation('title', 'en'))" :text="__('editmovie.Movie_En')" />
+            <x-admin.input name="title[ka]" errorname="title.en" :value=" old('title.ka', $movie->getTranslation('title', 'ka'))" :text="__('editmovie.Movie_Ka')" />
 
             <button type="submit"
                 class="bg-red-300 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:big-blue-600 mt-5 mb-5">
 
-                UpDate</button>
+                {{ __('editmovie.Update') }}</button>
 
 
         </form>

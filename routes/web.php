@@ -6,6 +6,7 @@ use App\Http\Controllers\MovieController;
 use App\Http\Controllers\sessions\AuthController;
 use App\Http\Controllers\Admin\MovieController as AdminMovieController;
 use App\Http\Controllers\Admin\QuoteController as AdminQuoteController;
+use App\Http\Controllers\LanguageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,8 @@ use App\Http\Controllers\Admin\QuoteController as AdminQuoteController;
 
 Route::get('/', [QuoteController::class, 'randomQoute'])->name('home');
 Route::get('movies/{movie}', [MovieController::class, 'showMovie'])->name('movie.show');
+
+Route::get('/languages/{switch}', [LanguageController::class, 'switch'])->name('languages.switch');
 
 Route::prefix('admin')->middleware('admin')->group(function () {
 	Route::view('movies/create', 'admin.movie.createmovie')->name('movies.create');
