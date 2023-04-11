@@ -22,7 +22,7 @@ use App\Http\Controllers\LanguageController;
 Route::get('/', [QuoteController::class, 'randomQoute'])->name('home');
 Route::get('movies/{movie}', [MovieController::class, 'showMovie'])->name('movie.show');
 
-Route::get('/languages/{switch}', [LanguageController::class, 'switch'])->name('languages.switch');
+Route::get('/languages/{switch}', [LanguageController::class, 'switchLanguage'])->name('languages.switch');
 
 Route::prefix('admin')->middleware('admin')->group(function () {
 	Route::controller(AdminMovieController::class)->group(function () {
