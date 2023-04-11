@@ -1,6 +1,6 @@
-## Movie-Quote App
+## Movie-Quotes App
 
-The movie-Quote app consists of two pages. The first landing page displays a randomly selected quote along  with an image and a related movie title, Clicking on the movie title takes you to a second page where all the quotes from that movie are listed.
+The Movie-Quotes app consists of two pages. The first landing page displays a randomly selected quote along  with an image and a related movie title, Clicking on the movie title takes you to a second page where all the quotes from that movie are listed.
 The app includes an admin panel that allows signed-in administrators to manage movies and quotes. They can add new movies and quotes, as well as edit and delete existing ones.
 
 
@@ -16,7 +16,7 @@ The app includes an admin panel that allows signed-in administrators to manage m
 ## Prerequisites
 - PHP@8.2 and up
 - MYSQL@8 and up
-- npm@9.5 and up
+- npm@9 and up
 - composer@2 and up
 
 ## Teck stack
@@ -25,7 +25,7 @@ The app includes an admin panel that allows signed-in administrators to manage m
 
 
 ## Getting started
-1. First you need to clone Movie-Quote repository from github
+1. First you need to clone Movie-Quotes repository from github
 ```bash
 https://github.com/RedberryInternship/mariam-revia-movie-quotes.git
 ```
@@ -46,7 +46,7 @@ npm run dev
 cp .env.example .env
 ```
 
-You should also provide .env file all the necessary environment variables:
+You should also provide .env file your database credentials:
  
  ## MYSQL
 
@@ -62,11 +62,10 @@ You should also provide .env file all the necessary environment variables:
 
  >DB_PASSWORD=*****
 
-5. Execute following in root of your project
+5. Generate a new application key
 ```bash
   php artisan key:generate
 ```
-this generates auth key
 
 ## Migration
 Then migrating database
