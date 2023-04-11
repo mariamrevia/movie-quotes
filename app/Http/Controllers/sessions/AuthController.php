@@ -11,9 +11,7 @@ class AuthController extends Controller
 {
 	public function store(LoginRequest $request): RedirectResponse
 	{
-		$attributes = $request->validated();
-
-		if (!auth()->attempt($attributes))
+		if (!auth()->attempt($request->validated()))
 		{
 			throw ValidationException::withMessages([
 				'email'=> 'your provieded credentials could not be verified',
