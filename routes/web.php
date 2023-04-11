@@ -48,4 +48,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
 });
 
 Route::view('login', 'sessions.login')->name('login.view');
-Route::post('login', [AuthController::class, 'store'])->name('login.store');
+Route::controller(AuthController::class)->group(function () {
+	Route::post('login', 'store')->name('login.store');
+	Route::post('logout', 'destroy')->name('logout.destroy')->middleware('admin');
+});

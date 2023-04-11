@@ -23,6 +23,10 @@
             </x-admin.link>
         </x-admin.field>
 
-
+        <form id="logout" method="POST" action={{route('logout.destroy')}}>
+        @csrf
+        <x-admin.button :name="__('login.log_Out')"/> 
+    </form>
+      
     </div>
 </x-layout>
