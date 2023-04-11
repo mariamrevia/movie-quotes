@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\Admin\QuoteRequest;
-use App\Http\Requests\Admin\UpDateQuoteRequest;
+use App\Http\Requests\Quote\StoreQuoteRequest;
+use App\Http\Requests\Quote\UpdateQuoteRequest;
 use App\Models\Movie;
 use App\Models\Quote;
 use App\Http\Controllers\Controller;
@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Storage;
 
 class QuoteController extends Controller
 {
-	public function showQuotes(): View
+	public function show(): View
 	{
-		return view('admin.allquotes', [
+		return view('admin.quotes', [
 			'quotes'=> Quote::latest()->simplePaginate(8),
 		]);
 	}
@@ -28,7 +28,7 @@ class QuoteController extends Controller
 		]);
 	}
 
-	public function update(UpDateQuoteRequest $request, Quote $quote): RedirectResponse
+	public function update(UpdateQuoteRequest $request, Quote $quote): RedirectResponse
 	{
 		$quoteAttributes = $request->validated();
 
@@ -39,22 +39,19 @@ class QuoteController extends Controller
 		}
 
 		$quote->update($quoteAttributes);
-
 		return redirect()->route('quotes.show_all');
 	}
 
 	public function create(): View
 	{
-		return view('admin.quote.createquote', [
+		return view('admin.quote.create', [
 			'movies' => Movie::all(),
 		]);
 	}
 
-	public function store(QuoteRequest $request): RedirectResponse
+	public function store(StoreQuoteRequest $request): RedirectResponse
 	{
-		$quoteAttributes = [...$request->validated(), 'image' => $request->file('image')->store('images')];
-		Quote::create($quoteAttributes);
-
+		Quote::create([...$request->validated(), 'image' => $request->file('image')->store('images')]);
 		return redirect()->route('dashboard.show');
 	}
 

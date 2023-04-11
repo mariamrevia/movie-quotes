@@ -10,7 +10,7 @@ class QuoteController extends Controller
 	public function randomQoute(): View
 	{
 		$randomQuote = Quote::inRandomOrder()->first();
-		return view('landingpage', [
+		return view('landing', [
 			'quote' => $randomQuote,
 		]);
 	}

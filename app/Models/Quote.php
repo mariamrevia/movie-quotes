@@ -11,11 +11,11 @@ class Quote extends Model
 {
 	use HasFactory;
 
-	protected $guarded = ['id'];
-
 	use HasTranslations;
 
 	public $translatable = ['body'];
+
+	protected $guarded = ['id'];
 
 	public function movie(): BelongsTo
 	{

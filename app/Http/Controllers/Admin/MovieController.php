@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\Admin\MovieRequest;
+use App\Http\Requests\Movie\StoreMovieRequest;
+use App\Http\Requests\Movie\UpdateMovieRequest;
 use App\Models\Movie;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Controllers\Controller;
@@ -10,9 +11,9 @@ use Illuminate\Contracts\View\View;
 
 class MovieController extends Controller
 {
-	public function showMovies(): View
+	public function show(): View
 	{
-		return view('admin.allmovies', [
+		return view('admin.movies', [
 			'movies' => Movie::latest()->simplePaginate(8),
 		]);
 	}
@@ -24,19 +25,15 @@ class MovieController extends Controller
 		]);
 	}
 
-	public function update(MovieRequest $request, Movie $movie): RedirectResponse
+	public function update(UpdateMovieRequest $request, Movie $movie): RedirectResponse
 	{
-		$movieAttributes = $request->validated();
-
-		$movie->update($movieAttributes);
+		$movie->update($request->validated());
 		return redirect()->route('movies.show_all');
 	}
 
-	public function store(MovieRequest $request): RedirectResponse
+	public function store(StoreMovieRequest $request): RedirectResponse
 	{
-		$movieAttributes = $request->validated();
-
-		Movie::create($movieAttributes);
+		Movie::create($request->validated());
 		return redirect()->route('dashboard.show');
 	}
 

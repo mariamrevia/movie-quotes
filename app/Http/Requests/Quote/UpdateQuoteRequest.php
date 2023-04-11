@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin;
+namespace App\Http\Requests\Quote;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpDateQuoteRequest extends FormRequest
+class UpdateQuoteRequest extends FormRequest
 {
 	public function rules(): array
 	{
