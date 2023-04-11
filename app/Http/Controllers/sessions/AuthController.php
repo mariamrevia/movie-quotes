@@ -21,4 +21,10 @@ class AuthController extends Controller
 		session()->regenerate();
 		return redirect()->route('dashboard.show');
 	}
+
+	public function destroy()
+	{
+		auth()->logout();
+		return redirect()->route('login.store');
+	}
 }
